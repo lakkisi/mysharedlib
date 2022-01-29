@@ -1,0 +1,97 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.silka.mysharedlib</groupId>
+    <artifactId>mysharedlib</artifactId>
+    <version>1.0.0</version>
+
+    <name>Shared Library</name>
+    <description>Jenkins Shared library example with object and unit tests.</description>
+    
+    <properties>
+        <!-- Sonar & Jenkins related properties  -->
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.5.7</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>apache-maven</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <testSourceDiement>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.9</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.7.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>addSources</goal>
+                            <goal>addTestSources</goal>
+                            <goal>generateStubs</goal>
+                            <goal>compile</goal>
+                            <goal>generateTestStubs</goal>
+                            <goal>compileTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>
+                            <directory>${project.basedir}/src/</directory>
+                            <includes>
+                                <include>**/*.groovy</include>
+                            </includes>
+                        </source>
+                    </sources>
+                    <testSources>
+                        <testSource>
+                            <directory>${project.basedir}/tests/</directory>
+                            <includes>
+                                <include>**/*.groovy</include>
+                            </includes>
+                        </testSource>
+                    </testSources>
+
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
