@@ -28,7 +28,7 @@
 
     <build>
         <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>tests</testSourceDirectory>
+        <testSourceDirectory>test</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -62,7 +62,7 @@
                     </sources>
                     <testSources>
                         <testSource>
-                            <directory>${project.basedir}/tests/</directory>
+                            <directory>${project.basedir}/test/</directory>
                             <includes>
                                 <include>**/*.groovy</include>
                             </includes>
