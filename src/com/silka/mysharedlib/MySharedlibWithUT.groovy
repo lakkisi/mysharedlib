@@ -2,9 +2,24 @@ package com.silka.mysharedlib ;
 
 public class MySharedlibWithUT implements Serializable   {
 
+	def steps //this is the jenkins object
 
-	checkVersionFromPom (steps) {
-		if (steps.fileExists("pom.xml"))
-		def version = 
+	/**
+	* initializing the steps object in the constructor
+	**/
+	public PacificHawaiiFileConfigurationDocker (steps) {
+		this.steps = steps
 	}
+
+	/**
+	* this function gets version from pom or return nuls if the pom.xml file does not exists
+	**/
+	public def getVersionFromPom (steps) {
+		if (steps.fileExists("pom.xml")) {
+			return steps.readMavenPom(file: 'pom.xml')
+		} else {
+			return null
+		}
+	}
+
 }
