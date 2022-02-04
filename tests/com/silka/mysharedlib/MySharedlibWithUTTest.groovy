@@ -1,6 +1,6 @@
 package com.silka.mysharedlib
 
-import com.silka.sharedlib.MySharedlibWithUT
+import com.silka.mysharedlib.MySharedlibWithUT
 import static org.junit.Assert.*
 import org.junit.Test
 
@@ -14,14 +14,14 @@ public class MySharedlibWithUTTest {
 		 * 
 		 */
 		this.steps.metaClass.fileExists = { String a -> return false } // mocking jenkins function fileExists = false		
-		assertNull(new MySharedlibWithUT(steps))
+		assertNull(new MySharedlibWithUT(steps).getVersionFromPom())
 
-		/** test return pom version
+		/** test return pom version in case of pom does exists
 		 *
 		 */
 		this.steps.metaClass.fileExists = { String a -> return true } // mocking jenkins function fileExists = true
 		this.steps.metaClass.readMavenPom = { Map a -> return "1.0.0" } // readMavenPom returns version "1.0.0"		
-		assertEquals(new MySharedlibWithUT(steps), "1.0.0")
+		assertEquals(new MySharedlibWithUT(steps).getVersionFromPom(), "1.0.0")
 	}
 
 	

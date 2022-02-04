@@ -7,14 +7,14 @@ public class MySharedlibWithUT implements Serializable   {
 	/**
 	* initializing the steps object in the constructor
 	**/
-	public PacificHawaiiFileConfigurationDocker (steps) {
+	public MySharedlibWithUT (steps) {
 		this.steps = steps
 	}
 
 	/**
 	* this function gets version from pom or return nuls if the pom.xml file does not exists
 	**/
-	public def getVersionFromPom (steps) {
+	public def getVersionFromPom () {
 		if (steps.fileExists("pom.xml")) {
 			return steps.readMavenPom(file: 'pom.xml')
 		} else {

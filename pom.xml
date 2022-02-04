@@ -28,14 +28,14 @@
 
     <build>
         <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>test</testSourceDirectory>
+        <testSourceDirectory>tests</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.9</version>
             </plugin>
-            <plugin>
+<plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
                 <version>1.7.1</version>
@@ -62,7 +62,7 @@
                     </sources>
                     <testSources>
                         <testSource>
-                            <directory>${project.basedir}/test/</directory>
+                            <directory>${project.basedir}/tests/</directory>
                             <includes>
                                 <include>**/*.groovy</include>
                             </includes>
