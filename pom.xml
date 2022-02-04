@@ -35,7 +35,7 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.9</version>
             </plugin>
-<plugin>
+            <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
                 <version>1.7.1</version>
@@ -48,6 +48,7 @@
                             <goal>compile</goal>
                             <goal>generateTestStubs</goal>
                             <goal>compileTests</goal>
+                         
                         </goals>
                     </execution>
                 </executions>
