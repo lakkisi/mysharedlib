@@ -16,9 +16,9 @@ public class MySharedlibWithUT implements Serializable   {
 	**/
 	public def getVersionFromPom () {
 		if (steps.fileExists("pom.xml")) {
-			return steps.readMavenPom(file: 'pom.xml')
+			return steps.readMavenPom(file: 'pom.xml').getVersion() ?: ""			
 		} else {
-			return null
+			return ""
 		}
 	}
 
