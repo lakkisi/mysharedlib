@@ -4,11 +4,6 @@
 pipeline {
     //definition de l'agent
     agent any
-
-    tools {
-        jdk "JDK sun 1.8"
-        maven "Maven 3.2.5"
-    }
     
     stages {
 
